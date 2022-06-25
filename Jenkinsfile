@@ -28,7 +28,7 @@ pipeline{
               sleep(180)
                }
            sh "aws elbv2 create-listener --load-balancer-arn ${jsonitem1['LoadBalancers'][0]['LoadBalancerArn']} --protocol HTTP --port 80 --default-actions Type=forward,TargetGroupArn=${jsonitem2['TargetGroups'][0]['TargetGroupArn']} --region us-east-1"
-           sh "aws autoscaling create-launch-configuration --launch-configuration-name my-lc-cli --image-id ami-052efd3df9dad4825 --instance-type t2.micro --security-groups sg-08625c34c68a22785 --key-name awsall --iam-instance-profile demo_full_access --user-data file://userdata.txt --region us-east-1"
+           sh "aws autoscaling create-launch-configuration --launch-configuration-name my-lc-cli --image-id ami-052efd3df9dad4825 --instance-type t2.micro --security-groups sg-08625c34c68a22785 --key-name awsall --iam-instance-profile ec2_full --user-data file://userdata.txt --region us-east-1"
            sh "aws autoscaling create-auto-scaling-group --auto-scaling-group-name my-asg-cli --launch-configuration-name my-lc-cli --max-size 2 --min-size 1 --desired-capacity 1 --target-group-arns ${jsonitem2['TargetGroups'][0]['TargetGroupArn']} --availability-zones us-east-1a --region us-east-1b"
         }
        }
