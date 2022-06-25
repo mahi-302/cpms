@@ -12,7 +12,7 @@ sudo apt install net-tools
 sudo /opt/lampp/lampp start
 sudo rm -rf /opt/lampp/htdocs/*
 sudo chmod 777 /opt/lampp/htdocs
-sudo git clone https://github.com/Gunamoni11/cpms.git
+sudo git clone https://github.com/mahi-302/cpms.git
 sudo cp -r cpms/sourcecode/cpms/* /opt/lampp/htdocs
 sudo chmod 777 /opt/lampp/htdocs/includes/dbconnection.php
 sudo sed -i.bak 's/localhost/endpoint/g' /opt/lampp/htdocs/includes/dbconnection.php
@@ -25,11 +25,11 @@ sudo chmod 777 /opt/lampp/phpmyadmin/config.inc.php
 sudo echo '$cfg["Servers"][$i]["verbose"] = "Amazon RDS";' >> /opt/lampp/phpmyadmin/config.inc.php
 sudo echo '$cfg["Servers"][$i]["host"] = "endpoint";' >> /opt/lampp/phpmyadmin/config.inc.php
 sudo echo '$cfg["Servers"][$i]["user"] = "admin";' >> /opt/lampp/phpmyadmin/config.inc.php
-sudo echo '$cfg["Servers"][$i]["password"] = "Nareshkumar";' >> /opt/lampp/phpmyadmin/config.inc.php
+sudo echo '$cfg["Servers"][$i]["password"] = "mahesh8842";' >> /opt/lampp/phpmyadmin/config.inc.php
 sudo echo '$cfg["Servers"][$i]["port"] = "3306";' >> /opt/lampp/phpmyadmin/config.inc.php
 sudo echo '$cfg["Servers"][$i]["auth_type"] = "config";' >> /opt/lampp/phpmyadmin/config.inc.php
 sudo echo '$cfg["Servers"][$i]["AllowNoPassword"] = true;' >> /opt/lampp/phpmyadmin/config.inc.php
 sudo chmod 400 /opt/lampp/phpmyadmin/config.inc.php
 sudo /opt/lampp/lampp restart
 sudo apt install mysql-client-core-8.0
-sudo mysql -h endpoint -u admin --password=Nareshkumar cpms < /cpms/sourcecode/SQL\ File/cpms.sql
+sudo mysql -h endpoint -u admin --password=mahesh8842 cpms < /cpms/sourcecode/SQL\ File/cpms.sql
